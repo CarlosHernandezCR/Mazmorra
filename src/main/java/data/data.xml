@@ -1,0 +1,35 @@
+<dungeon>
+    <room id="R0">
+        <door name="Norte" dest="R1"/>
+        <door name="Sur" dest="R2"/>
+        <door name="Este" dest="R3"/>
+        <description>Inicio</description>
+    </room>
+    <room id="R1">
+        <door name="Sur" dest="R0"/>
+        <description>Habitación vacía, con un eco misterioso.</description>
+    </room>
+    <room id="R2">
+        <door name="Norte" dest="R0"/>
+        <door name="Este" dest="R4"/>
+        <description>Habitación pequeña con una antorcha apagada.</description>
+    </room>
+    <room id="R3">
+        <door name="Oeste" dest="R0"/>
+        <door name="Este" dest="R5"/>
+        <description>Pasillo oscuro con un olor a humedad.</description>
+    </room>
+    <room id="R4">
+        <door name="Oeste" dest="R2"/>
+        <door name="Sur" dest="R6"/>
+        <description>Almacén polvoriento con una vieja espada.</description>
+    </room>
+    <room id="R5">
+        <door name="Oeste" dest="R3"/>
+        <description>Una sala amplia con un cofre.</description>
+    </room>
+    <room id="R6">
+        <door name="Norte" dest="R4"/>
+        <description>Una habitación con un suelo frágil.</description>
+    </room>
+</dungeon>

@@ -1,0 +1,52 @@
+# Ignorar archivos generados por IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignorar archivos de compilación y salida
+target/
+out/
+bin/
+*.class
+
+# Ignorar configuraciones de SonarLint
+.idea/sonarlint/
+
+# Ignorar archivos de SonarLint y análisis de seguridad
+.idea/sonarlint/issuestore/
+.idea/sonarlint/securityhotspotstore/
+
+# Ignorar archivos de Maven
+.mvn/
+!**/src/main/**/mvnw*
+!**/src/main/**/mvnw.cmd*
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+pom.xml.release
+target/
+
+# Ignorar archivos de Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle/
+
+# Ignorar archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar logs
+*.log
+*.log.*
+
+# Ignorar configuraciones de usuario
+*.swp
+*.swo
+*.bak
+
+# Ignorar MANIFEST.MF en la carpeta target
+target/classes/META-INF/MANIFEST.MF
+src/main/resources/META-INF/MANIFEST.MF
