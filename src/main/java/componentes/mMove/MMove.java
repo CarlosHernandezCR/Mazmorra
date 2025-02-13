@@ -28,17 +28,16 @@ public class MMove extends JPanel implements MMoveInt {
 
     private void initComponente() {
         actualRoomDescription = new JLabel("COMENZAR");
-//        actualRoomDescription.setFont(new Font("Arial", Font.BOLD, 20));
         actualRoomDescription.setHorizontalAlignment(SwingConstants.CENTER);
         actualRoomDescription.setVerticalAlignment(SwingConstants.CENTER);
 
-        north = new JButton("North");
+        north = new JButton("Norte");
         north.setEnabled(false);
-        south = new JButton("South");
+        south = new JButton("Sur");
         south.setEnabled(false);
-        weast = new JButton("Weast");
+        weast = new JButton("Oeste");
         weast.setEnabled(false);
-        east = new JButton("East");
+        east = new JButton("Este");
         east.setEnabled(false);
 
         setLayout(new BorderLayout());

@@ -52,7 +52,7 @@ public class DungeonJuego extends JFrame {
         logScrollPane.setPreferredSize(new Dimension(getWidth(), 150));
         add(logScrollPane, BorderLayout.SOUTH);
 
-        setTitle("Dungeon Navigator");
+        setTitle("Juego de Mazmorras");
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
