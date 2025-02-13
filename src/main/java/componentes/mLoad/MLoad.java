@@ -16,15 +16,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MLoad implements MLoadInterface{
+import static common.Constantes.*;
 
+public class MLoad implements MLoadInterface{
     private Dungeon dungeon;
     @Override
     public void loadXMLFile() {
         try {
             JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
             j.setAcceptAllFileFilterUsed(false);
-            j.addChoosableFileFilter(new FileNameExtensionFilter("Only XML", "xml"));
+            j.addChoosableFileFilter(new FileNameExtensionFilter(SOLO_XML, XML));
             int r = j.showOpenDialog(null);
             if (r == JFileChooser.APPROVE_OPTION) {
                 File xmlFile = new File(j.getSelectedFile().getAbsolutePath());
@@ -33,7 +34,7 @@ public class MLoad implements MLoadInterface{
                 Document doc = dBuilder.parse(xmlFile);
                 doc.getDocumentElement().normalize();
 
-                NodeList roomList = doc.getElementsByTagName("room");
+                NodeList roomList = doc.getElementsByTagName(ROOM);
                 dungeon = new Dungeon();
                 List<Room> rooms = new ArrayList<>();
 
@@ -43,18 +44,18 @@ public class MLoad implements MLoadInterface{
                     if (roomNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element roomElement = (Element) roomNode;
                         Room room = new Room();
-                        room.setId(roomElement.getAttribute("id"));
-                        room.setDescription(roomElement.getElementsByTagName("description").item(0).getTextContent());
+                        room.setId(roomElement.getAttribute(ID));
+                        room.setDescription(roomElement.getElementsByTagName(DESCRIPTION).item(0).getTextContent());
 
-                        NodeList doorList = roomElement.getElementsByTagName("door");
+                        NodeList doorList = roomElement.getElementsByTagName(DOOR);
                         List<Door> doors = new ArrayList<>();
                         for (int k = 0; k < doorList.getLength(); k++) {
                             Node doorNode = doorList.item(k);
                             if (doorNode.getNodeType() == Node.ELEMENT_NODE) {
                                 Element doorElement = (Element) doorNode;
                                 Door door = new Door();
-                                door.setName(doorElement.getAttribute("name"));
-                                door.setDest(doorElement.getAttribute("dest"));
+                                door.setName(doorElement.getAttribute(NAME));
+                                door.setDest(doorElement.getAttribute(DEST));
                                 doors.add(door);
                             }
                         }

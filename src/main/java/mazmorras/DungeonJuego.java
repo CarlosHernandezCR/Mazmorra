@@ -10,15 +10,15 @@ import model.Room;
 import javax.swing.*;
 import java.awt.*;
 
+import static common.Constantes.*;
+
 public class DungeonJuego extends JFrame {
 
     private MLoad mLoad;
     private MTree mTree;
     private MMove mMove;
     private MLog mLog;
-    private Dungeon dungeon;
     private Room currentRoom;
-    private static String ENTRADO ="Has entrado a ";
 
     public DungeonJuego() {
         mLoad = new MLoad();
@@ -52,7 +52,7 @@ public class DungeonJuego extends JFrame {
         logScrollPane.setPreferredSize(new Dimension(getWidth(), 150));
         add(logScrollPane, BorderLayout.SOUTH);
 
-        setTitle("Juego de Mazmorras");
+        setTitle(JUEGO_DE_MAZMORRAS);
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -60,8 +60,8 @@ public class DungeonJuego extends JFrame {
 
     private void createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
-        JMenu fileMenu = new JMenu("Cargar");
-        JMenuItem loadItem = new JMenuItem("Cargar mapa");
+        JMenu fileMenu = new JMenu(CARGAR);
+        JMenuItem loadItem = new JMenuItem(CARGAR_MAPA);
 
         loadItem.addActionListener(e -> loadDungeon());
 
@@ -73,7 +73,7 @@ public class DungeonJuego extends JFrame {
 
     private void loadDungeon() {
         mLoad.loadXMLFile();
-        dungeon = mLoad.getDungeon();
+        Dungeon dungeon = mLoad.getDungeon();
         if (dungeon != null) {
             mTree.createJTree(dungeon);
             mMove.setRooms(dungeon.getRooms());
@@ -83,7 +83,7 @@ public class DungeonJuego extends JFrame {
                 mLog.addLogMessage(ENTRADO + currentRoom.getId() + "\n");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Error al cargar la mazmorra.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, ERROR_AL_CARGAR_LA_MAZMORRA, ERROR1, JOptionPane.ERROR_MESSAGE);
         }
     }
 

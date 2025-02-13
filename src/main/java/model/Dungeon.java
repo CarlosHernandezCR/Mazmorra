@@ -12,6 +12,6 @@ import java.util.List;
 public class Dungeon {
     private List<Room> rooms;
     public Dungeon() {
-        this.rooms = new ArrayList<>(); // Inicializa la lista aquí
+        this.rooms = new ArrayList<>();
     }
 }

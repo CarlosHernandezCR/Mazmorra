@@ -3,14 +3,11 @@ package componentes.mMove;
 import model.Room;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.time.LocalDate;
-import java.util.List;
+
+import static common.Constantes.*;
 
 public class MMove extends JPanel implements MMoveInt {
-
-
     private java.util.List<Room> rooms;
     private MMoveListener listener;
 
@@ -27,17 +24,17 @@ public class MMove extends JPanel implements MMoveInt {
     }
 
     private void initComponente() {
-        actualRoomDescription = new JLabel("COMENZAR");
+        actualRoomDescription = new JLabel(COMENZAR);
         actualRoomDescription.setHorizontalAlignment(SwingConstants.CENTER);
         actualRoomDescription.setVerticalAlignment(SwingConstants.CENTER);
 
-        north = new JButton("Norte");
+        north = new JButton(NORTE);
         north.setEnabled(false);
-        south = new JButton("Sur");
+        south = new JButton(SUR);
         south.setEnabled(false);
-        weast = new JButton("Oeste");
+        weast = new JButton(OESTE);
         weast.setEnabled(false);
-        east = new JButton("Este");
+        east = new JButton(ESTE);
         east.setEnabled(false);
 
         setLayout(new BorderLayout());
@@ -63,52 +60,52 @@ public class MMove extends JPanel implements MMoveInt {
         actualRoomDescription.setText(room.getDescription());
 
         room.getDoors().forEach(door -> {
-            if (door.getName().equalsIgnoreCase("Norte")) {
+            if (door.getName().equalsIgnoreCase(NORTE)) {
                 north.setEnabled(true);
                 north.removeActionListener(north.getActionListeners().length > 0 ? north.getActionListeners()[0] : null);
                 north.addActionListener(e -> {
                     Room nextRoom = rooms.stream()
                             .filter(r -> r.getId()
-                                    .equalsIgnoreCase(room.getDoors().stream().filter(d -> d.getName().equalsIgnoreCase("Norte"))
+                                    .equalsIgnoreCase(room.getDoors().stream().filter(d -> d.getName().equalsIgnoreCase(NORTE))
                                             .findFirst().get()
                                             .getDest())
                             ).findFirst().get();
                     listener.roomUpdated(nextRoom);
                     loadRoom(nextRoom);
                 });
-            } else if (door.getName().equalsIgnoreCase("Sur")) {
+            } else if (door.getName().equalsIgnoreCase(SUR)) {
                 south.setEnabled(true);
                 south.removeActionListener(south.getActionListeners().length > 0 ? south.getActionListeners()[0] : null);
                 south.addActionListener(e -> {
                     Room nextRoom = rooms.stream()
                             .filter(r -> r.getId()
-                                    .equalsIgnoreCase(room.getDoors().stream().filter(d -> d.getName().equalsIgnoreCase("Sur"))
+                                    .equalsIgnoreCase(room.getDoors().stream().filter(d -> d.getName().equalsIgnoreCase(SUR))
                                             .findFirst().get()
                                             .getDest())
                             ).findFirst().get();
                     listener.roomUpdated(nextRoom);
                     loadRoom(nextRoom);
                 });
-            } else if (door.getName().equalsIgnoreCase("Oeste")) {
+            } else if (door.getName().equalsIgnoreCase(OESTE)) {
                 weast.setEnabled(true);
                 weast.removeActionListener(weast.getActionListeners().length > 0 ? weast.getActionListeners()[0] : null);
                 weast.addActionListener(e -> {
                     Room nextRoom = rooms.stream()
                             .filter(r -> r.getId()
-                                    .equalsIgnoreCase(room.getDoors().stream().filter(d -> d.getName().equalsIgnoreCase("Oeste"))
+                                    .equalsIgnoreCase(room.getDoors().stream().filter(d -> d.getName().equalsIgnoreCase(OESTE))
                                             .findFirst().get()
                                             .getDest())
                             ).findFirst().get();
                     listener.roomUpdated(nextRoom);
                     loadRoom(nextRoom);
                 });
-            } else if (door.getName().equalsIgnoreCase("Este")) {
+            } else if (door.getName().equalsIgnoreCase(ESTE)) {
                 east.setEnabled(true);
                 east.removeActionListener(east.getActionListeners().length > 0 ? east.getActionListeners()[0] : null);
                 east.addActionListener(e -> {
                     Room nextRoom = rooms.stream()
                             .filter(r -> r.getId()
-                                    .equalsIgnoreCase(room.getDoors().stream().filter(d -> d.getName().equalsIgnoreCase("Este"))
+                                    .equalsIgnoreCase(room.getDoors().stream().filter(d -> d.getName().equalsIgnoreCase(ESTE))
                                             .findFirst().get()
                                             .getDest())
                             ).findFirst().get();

@@ -17,8 +17,4 @@ public class MLog extends JTextArea implements MLogInterface {
         this.append(message);
     }
 
-    @Override
-    public void clearLog() {
-        this.setText("");
-    }
 }
