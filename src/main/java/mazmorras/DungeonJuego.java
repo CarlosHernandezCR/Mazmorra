@@ -60,15 +60,12 @@ public class DungeonJuego extends JFrame {
 
     private void createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
-        JMenu fileMenu = new JMenu("File");
-        JMenuItem loadItem = new JMenuItem("Load");
-        JMenuItem startItem = new JMenuItem("Start");
+        JMenu fileMenu = new JMenu("Cargar");
+        JMenuItem loadItem = new JMenuItem("Cargar mapa");
 
         loadItem.addActionListener(e -> loadDungeon());
-        startItem.addActionListener(e -> startExploration());
 
         fileMenu.add(loadItem);
-        fileMenu.add(startItem);
         menuBar.add(fileMenu);
 
         setJMenuBar(menuBar);
@@ -87,15 +84,6 @@ public class DungeonJuego extends JFrame {
             }
         } else {
             JOptionPane.showMessageDialog(this, "Error al cargar la mazmorra.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    private void startExploration() {
-        if (dungeon != null && !dungeon.getRooms().isEmpty()) {
-            currentRoom = dungeon.getRooms().get(0);
-            mLog.addLogMessage(ENTRADO + currentRoom.getId() + "\n");
-        } else {
-            JOptionPane.showMessageDialog(this, "No dungeon loaded.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
