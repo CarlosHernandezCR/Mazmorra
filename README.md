@@ -3,7 +3,7 @@
 Proyecto básico en Swing.  
 
 ## 📜 Descripción  
-Este es un proyecto realizado con **Swing** que permite moverse por una mazmorra con habitaciones conectadas por puertas.  
+Este es un proyecto realizado con **Swing** que permite moverse por una mazmorra con habitaciones conectadas por puertas.
    ![Primera Pantalla](photos/primera_pantalla.png)
 ## 🎮 Cómo jugar  
 1. **Cargar el archivo XML**:  
